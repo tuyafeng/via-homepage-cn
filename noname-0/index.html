@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="en-us" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta name="viewport" content="width=device-width, initial-scale=0.9">
+<title id="title">  
+</title>
+<script type="text/javascript" src="http://yiju.ml/api/word.php?m=js"></script>
+<script type="text/javascript">
+/*Via 标题栏随机一句古诗词(适用于任何网页)
+//Made by z1576796635 on May 28, 2017 . 
+//Powered by YiJu , h t t p : / / y i j u . m l
+*/
+var s = false; //显示来源信息，true为显示，false为不显示，默认不显示
+var t =document.getElementsByTagName("title")[0];
+if(s){
+t.innerHTML = str[0]+str[1];
+}else{
+t.innerHTML = str[0];
+}
+</script>
+</head>
+<style>
+
+
+<div id="yiyan" style="width: 500px;background-color:rgba(255, 255, 255, 0);">
+<br />
+<br />
+<br />
+<script src="./js/hitokoto.js"></script>
+<script>
+var num=Math.random();
+if(num>=0.6){
+var url="https://hitoapi.cc/sp/"
+var ajax = new XMLHttpRequest();
+ajax.onreadystatechange=function()
+  {
+  if (ajax.readyState==4 && ajax.status==200)
+    {
+   var hit = JSON.parse(ajax.responseText);
+    document.getElementById("yiyan").innerHTML="<br />"+hit.text+"<br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp——"+hit.author;
+    }
+  }
+ajax.open('GET',url, true);
+ajax.send();
+}
+
+else{
+    var count=Math.floor(Math.random()*hit.length);
+    var ran=hit[count];
+   var text=ran.hitokoto;
+   var author=ran.source;
+   /*var ajax = new XMLHttpRequest();
+ajax.onreadystatechange=function()
+  {
+  if (ajax.readyState==4)
+    {
+    alert(ajax.status);
+    alert(ajax.responseText);
+   var hit = JSON.parse(ajax.responseText);
+   var ran=hit(Math.random(hit.length-2)+lit.length);
+   var text=ran.hitokoto;
+   var author=ran.source;
+   document.getElementById("yiyan").innerHTML="<br />"+text+"<br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp——"+author;
+   }
+  }
+  ajax.open('GET','./js/customHitokotoB.json', true);
+  ajax.send();
+  */
+   document.getElementById("yiyan").innerHTML="<br />"+text+"<br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp——"+author;
+}
+</script>
+<br>
+
+
+
+
+/*下方这句不动它，翻译开始*/
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+
+/*翻译
+主页整体样式 
+文本对齐︰ 中心;
+背景色︰ #f1f6ee  使用夜间默认时修改为#000000即可
+}
+*/
+body {
+	text-align: center;
+    background-image:url('images/bg.png') !important;
+ /*可换上面的图片地址*/
+    background-size: 100% !important;
+    background-repeat: no-repeat;
+ 	background-color: #ffffff;
+  /*可删上面的固定句语*/
+}
+
+
+
+
+/*翻译
+搜索栏字体样式 
+宽度︰ 90%;
+高度︰ 40px;
+背景颜色︰ 透明;
+边境︰ 无;
+大纲︰ 0;
+字体大小︰ 18px;
+字体颜色: #000000;
+填充︰ 0 20px;
+边界半径︰ 50px
+}*/
+
+#search_input {
+	width: 90%;
+	height: 40px;
+	background-color: transparent;
+	border: none;
+	outline: 0;
+	font-size: 16px;
+	color: #A593E0;
+	padding: 0 10px;
+	border-radius: 50px
+}
+
+/*翻译
+搜索框边距 
+下边距︰ 30px;
+上边距︰ 20px;
+*/
+
+.search_part {
+	margin-bottom: 5px;
+	margin-top: 15px;
+}
+
+/*翻译
+跨度样式
+显示︰ 阻止;
+溢出︰ 隐藏;
+左填充︰ 5px;
+垂直对齐︰ 居中;
+*/
+
+.search_bar span {
+	display: block;
+	font-size: 12px;
+	overflow: hidden;
+	padding-left: 2px;
+	margin-right: 42px;
+	vertical-align: middle;
+}
+.search_bar span i {
+	display:none;
+	float: right;
+	width: 35px;
+	height: 40px;
+	background: url(images/clear.png) no-repeat center;
+	background-size: 16px;
+}
+.search_bar .si {
+	margin: 0 38px 0 10px;
+}
+
+/*搜索建议条*/
+#suggest {
+	position: absolute;
+	left: -1px;
+	right: -1px;
+	top: 40px;
+	border:1px solid #ccc;
+	background: #fff;
+	line-height: 40px;
+}
+#suggest li {
+	border-bottom: 1px solid #ccc;
+	text-align: left;
+	padding-left: 16px;
+}
+#suggest li:active {
+	background: #F0F0F0;
+}
+#suggest li b {
+	float: right;
+	width: 44px;
+	height: 40px;
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAI5JREFUSEtjZCACLF261J6RkbELpPT///9l0dHRB4nQRlgJ0ODny5Yt+w/CIDZhHUSqgBkKo4nURljZqMHwMBohQQFK/ECvnkT3LgX8kyAzGZATPwWGgTMPSiYCGvyEWgYiGfyEAcjxoKaroWZ5EM52QBUjJLkRExajQUH7Qgg5E4HYxMQLUWpgmYiUxA8AOdLMz+iDKvIAAAAASUVORK5CYII=) no-repeat scroll center center #fff;
+	background-size: 11px;
+}
+#suggest .close {
+	text-align: right;
+	font-size: 14px;
+	color: #888;
+	padding-right: 12px;
+}
+
+/*翻译
+搜索栏框架样式 {
+框阴影︰ 0 0 18px rgba(70,70,40,.255);括号里的颜色为Rgb默认，可进入http://rgb.phpddt.com/查询
+-webkit 动画︰ fadeIn 2.5;
+动画︰ fadeIn 2.5;
+背景色︰ rgba(255,255,255,.100);
+边界半径︰ 50px;
+显示︰ 表;
+垂直对齐︰ 居中;
+宽度︰ 80%;根据你喜欢的宽度调整，目前我为了对齐图标使用80%
+高度︰ 40px;
+最大宽度︰ 400px;
+边距︰ 10px 默认布局;
+}
+*/
+
+.search_bar {
+	box-shadow: 0 0 5px rgba(70,70,40,.255);
+	-webkit-animation: fadeIn 2.5s;
+	animation: fadeIn 2.5s;
+	background-color:  rgba(255,255,255,.0);
+	border-radius: 3px;
+	display: table;
+	vertical-align: middle;
+	width: 85%;
+	height: 20px;
+	max-width: 400px;
+	margin: 10px auto;
+	position: relative;
+	z-index: 10;
+}
+
+/*翻译
+搜索栏搜索目标确认图标样式，目前为米奇
+轮廓边框︰ 0;
+高度︰ 40px;
+浮标位置︰ 右;
+颜色: #000;
+字体大小︰ 16px;
+字体粗细︰ 700;
+边境︰ 无;
+背景颜色︰ 透明;
+填充︰ 0 13px 0 13px
+*/
+
+#search_submit {
+	outline: 0;
+	height: 40px;
+	float: right;
+	color: #4a4266;
+	font-size: 18px;
+	font-weight: 500;
+	border: none;
+	background-color: transparent;
+	padding: 0 13px 0 13px
+}
+
+
+/*翻译
+书签图标排版目录样式 
+宽度︰ 100%;
+文本对齐︰ 中心;
+填充顶部︰ 15px;
+填充底部︰ 15px;
+*/
+
+#content {
+	width: 100%;
+	text-align: center;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+
+/*翻译
+书签框架样式
+-webkit 动画︰ fadeInDown 1s;
+动画︰ fadeInDown 1s;
+位置︰ 相对应;
+显示︰ 显示在内部;
+宽度︰ 75px;
+边境︰ 0;
+*/
+
+.box {
+	-webkit-animation: fadeInDown 1s;
+	animation: fadeInDown 1s;
+	position: relative;
+	display: inline-block;
+	width: 70px;
+	border: 0;
+}
+
+
+/*翻译
+书签图标样式
+宽度︰ 100%;
+高度︰ 100%;
+位置︰ 不受限制;
+左︰ 0;
+顶︰ 0;
+*/
+
+.box a {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+/*翻译
+书签字体样式
+颜色: #232323;使用夜间模式时修改为#eee或者#f2eada即可
+高度︰ 1.5em;
+线的高度︰ 1.5em;
+宽度︰ 72px;
+字体大小︰ 0.75em;
+白色空间︰ nowrap;
+溢出︰ 隐藏;
+边距︰ 默认布局;
+-webkit 边框顶部右半径︰ 5px;
+-webkit 边框底部右半径︰ 5px;
+文本溢出︰ 省略;
+-o 文本溢出︰ 省略;
+气相色谱-质谱-文本-溢出︰ 省略;
+填充顶部︰ 3px;
+填充底部︰ 8px;
+*/
+
+.url {
+	color: #4a4266;
+	height: 1.5em;
+	line-height: 1.5em;
+	width: 72px;
+	font-size: 0.75em;
+	white-space: nowrap;
+	overflow: hidden;
+	margin: auto;
+	-webkit-border-top-right-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	-ms-text-overflow: ellipsis;
+	padding-top: 0px;
+	padding-bottom: 8px;
+}
+
+/*翻译
+字体样式 
+宽度︰ 3em;
+高度︰ 3em;
+最大宽度︰ 72px;
+*/
+
+.icon {
+	width: 3em;
+	height: 3em;
+	max-width: 72px;
+}
+
+#app-items {
+	width: 100%;
+	max-width: 400px;
+	margin: 0px auto;
+	text-align: center;
+	background-color: #fff;
+	padding-top: 0px;
+	padding-bottom: 15px;
+}
+
+.title {
+    background-color: #fffffff;
+    font-size: 16px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px 0 20px;
+    color: #4a4266;
+
+}
+
+#yiyan {
+	width: 100%;
+	max-width: 400px;
+	margin: 0px auto;
+	text-align: center;
+	background-color: #fff;
+	padding-top: 0px;
+	padding-bottom: 15px;
+}
+
+.shuxing {
+    color: #4a4266;
+    font-size: 12px;
+    height: 30px;
+    line-height: 20px;
+    padding: 0 10px 0 20px;
+}
+
+
+@-webkit-keyframes flipInX {
+	0% {
+		-webkit-transform: perspective(400px) rotateX(90deg);
+		transform: perspective(400px) rotateX(90deg);
+		opacity: 0
+	}
+
+	40% {
+		-webkit-transform: perspective(400px) rotateX(-10deg);
+		transform: perspective(400px) rotateX(-10deg)
+	}
+
+	70% {
+		-webkit-transform: perspective(400px) rotateX(10deg);
+		transform: perspective(400px) rotateX(10deg)
+	}
+
+	100% {
+		-webkit-transform: perspective(400px) rotateX(0);
+		transform: perspective(400px) rotateX(0);
+		opacity: 1
+	}
+}
+
+@keyframes flipInX {
+	0% {
+		-webkit-transform: perspective(400px) rotateX(90deg);
+		-ms-transform: perspective(400px) rotateX(90deg);
+		transform: perspective(400px) rotateX(90deg);
+		opacity: 0
+	}
+
+	40% {
+		-webkit-transform: perspective(400px) rotateX(-10deg);
+		-ms-transform: perspective(400px) rotateX(-10deg);
+		transform: perspective(400px) rotateX(-10deg)
+	}
+
+	70% {
+		-webkit-transform: perspective(400px) rotateX(10deg);
+		-ms-transform: perspective(400px) rotateX(10deg);
+		transform: perspective(400px) rotateX(10deg)
+	}
+
+	100% {
+		-webkit-transform: perspective(400px) rotateX(0);
+		-ms-transform: perspective(400px) rotateX(0);
+		transform: perspective(400px) rotateX(0);
+		opacity: 1
+	}
+}
+
+@-webkit-keyframes fadeIn {
+	0% {
+		opacity: 0
+	}
+
+	100% {
+		opacity: 1
+	}
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0
+	}
+
+	100% {
+		opacity: 1
+	}
+}
+
+@-webkit-keyframes fadeInDown {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(-20px);
+		transform: translateY(-20px)
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+		transform: translateY(0)
+	}
+}
+
+@keyframes fadeInDown {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(-20px);
+		-ms-transform: translateY(-20px);
+		transform: translateY(-20px)
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+		-ms-transform: translateY(0);
+		transform: translateY(0)
+	}
+}
+
+</style>
+
+<body>
+<div id="content">
+<br />
+<div class="search_part">
+<br /><br /><br /><br /><br /><br /><br /><br /><br />
+<img class="smaller" src="images/google12345.gif" width=33% ></img>
+<form id="search_form" onsubmit="return search()" class="search_bar">
+<input type="submit" id="search_submit" value="☯" >
+<span><i id="clear" onclick="clear_seach()"></i><div class="si"><input class="search" type="text" value="" onkeyup="get_suggest()" onfocus="get_suggest()" onpaste="get_suggest()" autocomplete="off" id="search_input" placeholder="✎...  偷得浮生半日闲～" ></div>
+</span>
+<div id="suggest" style="display:none">
+	<ul id="suglist"></ul>
+	<div class="close" onclick="close_sug()">| 收起</div>
+</div>
+</form>
+</div>
+<br />
+<!--
+<div style="text-align:center;"</div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=400 height=210 src="http://music.163.com/outchain/player?type=0&id=692469559&auto=1&height=230"></iframe>-->
+
+<div class="box">
+<a href="https://m.baidu.com/?pu=sz%401321_480"></a>
+<p><img class="icon" src="images/Baidu.png" ></p>
+<p class="url">百度</p>
+</div>
+
+<div class="box">
+<a href="history://"></a>
+<p><img class="icon" src="images/lishi.png" ></p>
+<p class="url">足迹</p>
+</div>
+
+<div class="box">
+<a href="http://hao.xiaomi.com/"></a>
+<p><img class="icon" src="images/Wikipedia.png" ></p>
+<p class="url">导航</p>
+</div>
+
+<div class="box">
+<a href="folder://"></a>
+<p><img class="icon" src="images/shuqian.png" ></p>
+<p class="url">书签</p>
+</div>
+
+<br>
+<font color="#303030">
+<font size="6">―·❀·―</font>
+<table width="32" border="0"> 
+<br>
+</div>
+
+<!--
+如若要添加可复制一段
+<div class="box">
+<a href="地址"></a>
+<p><img class="icon" src="images/icon6.png" ></p>
+<p class="url">书签名称</p>
+</div>
+其中链接在href中如href="地址"建议填写folder://自己创建的文件夹地址，这样创建一次不必再修改
+图标文件放置在img文件夹中定义如src="images/icon6.png"
+显示的标题在<p class="url">书签名称</p>之间定义如<p class="url">酷安</p>
+下方window.location.href =主页搜索引擎地址，目前为自用Pc版百度内部搜索，加上浏览器的顶部搜索即为双搜索，使用更方便
+
+-->
+<br>
+<script type="text/javascript" src="https://api.lwl12.com/hitokoto/main/get?encode=js&charset=utf-8"></script><div id="lwlhitokoto"><script>lwlhitokoto()</script></div>
+
+<!--<div id="yiyan" style="
+width: 500px;
+background-color:rgba(255, 255, 255, 0);
+">
+<br />
+<br />
+<script src="hitokoto.js"></script>
+<script>
+var num=Math.random();
+if(num>=0.6){
+var url="https://hitoapi.cc/sp/"
+var ajax = new XMLHttpRequest();
+ajax.onreadystatechange=function()
+  {
+  if (ajax.readyState==4 && ajax.status==200)
+    {
+   var hit = JSON.parse(ajax.responseText);
+    document.getElementById("yiyan").innerHTML="<br />"+hit.text+"<br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp——"+hit.author;
+    }
+  }
+ajax.open('GET',url, true);
+ajax.send();
+}
+
+else{
+    var count=Math.floor(Math.random()*hit.length);
+    var ran=hit[count];
+   var text=ran.hitokoto;
+   var author=ran.source;
+   /*var ajax = new XMLHttpRequest();
+ajax.onreadystatechange=function()
+  {
+  if (ajax.readyState==4)
+    {
+    alert(ajax.status);
+    alert(ajax.responseText);
+   var hit = JSON.parse(ajax.responseText);
+   var ran=hit(Math.random(hit.length-2)+lit.length);
+   var text=ran.hitokoto;
+   var author=ran.source;
+   document.getElementById("yiyan").innerHTML="<br />"+text+"<br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp——"+author;
+   }
+  }
+  ajax.open('GET','customHitokotoB.json', true);
+  ajax.send();
+  */
+   document.getElementById("yiyan").innerHTML="<br />"+text+"<br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp——"+author;
+}
+</script>
+<br>-->
+
+
+
+</div>
+
+<script type="text/javascript">
+var last_kw = '';
+var max_sug_len = 1; //搜索建议最短触发长度
+
+/*获取搜索建议
+采用的神马搜索的服务
+*/
+function get_suggest() {
+	var kw = document.getElementById('search_input').value;
+	var clear = document.getElementById('clear');
+	if (kw) clear.style.display = 'block';
+	else clear.style.display = 'none';
+	if (kw == last_kw) return;
+	last_kw = kw;
+	if (!kw || kw.length < max_sug_len) {
+		close_sug();
+		return;
+	}
+	var script = document.createElement('script');
+	script.type = 'text/javascript';
+	script.src = 'http://sugs.m.sm.cn/web?t=w&uc_param_str=dnnwnt&scheme=http&fr=android&bid=1&q=' + encodeURIComponent(kw) + '&_=' + new Date().getTime() + '&callback=jsonp3';
+	var head = document.querySelector('head');
+	script.onload = function() {
+      head.removeChild(script);
+	};
+	head.appendChild(script);
+}
+function jsonp3(res) {
+	var suggest = document.getElementById('suggest');
+	if (!res.r || !res.r.length) {
+		suggest.style.display = 'none';
+		return;
+	}
+	var html = '';
+	res.r.forEach(function(v) {
+		html += '<li>' + v.w + '<b></b></li>';
+	});
+	document.getElementById('suglist').innerHTML = html;
+	suggest.style.display = 'block';
+}
+function close_sug() {
+	last_kw = '';
+	document.getElementById('suggest').style.display = 'none';
+}
+function move_input() {
+	document.body.scrollTop = document.getElementById('search_form').offsetTop - 2;
+}
+function clear_seach() {
+	var input = document.getElementById('search_input');
+	input.value = '';
+	document.getElementById('clear').style.display = 'none';
+	close_sug();
+	input.focus();
+}
+function search(){if(document.getElementById("search_input").value != ""){
+window.location.href = "http://m.baidu.com/s?ie=utf-8&rn=30&rsv_enter=0&wd=" + encodeURIComponent(document.getElementById("search_input").value) + "&from=smor&safe=1&snum=1";
+document.getElementById("search_input").value = "";}return false;}
+
+document.getElementById('suglist').addEventListener('click', function(e) {
+	var input = document.getElementById('search_input');
+	if (e.target.tagName == 'B') {
+		input.value = e.target.parentNode.firstChild.textContent;
+		input.focus();
+	} else if (e.target.tagName == 'LI') {
+		input.value = e.target.firstChild.textContent;
+		close_sug();
+		search();
+	}
+});
+window.addEventListener('resize', move_input);
+</script>
+</body>
+</html>

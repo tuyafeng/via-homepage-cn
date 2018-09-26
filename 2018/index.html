@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="en-us" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta name="author" content="JianXin" />
+<title>主页</title>
+<style type="text/css">
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	text-align: center;
+}
+
+#content {
+	width: 100%;
+	max-width: 450px;	
+	padding: 10px 0;
+	margin: auto;
+	text-align: center;
+}
+
+#logo a {
+	border: 0;
+	text-decoration: none;	
+}
+
+#logo img {
+	width: 40%;	
+	margin: 40px auto 20px;
+	border: 0;
+}
+
+#search_input {
+	width: 100%;
+	height: 40px;
+	padding: 0 5px;	
+	border: none;	
+	outline: 0;	
+	font-size: 16px;
+	color: #4a4266;
+	background-color: transparent;	
+}
+
+.search_part {
+	margin-top: 20px;
+	margin-bottom: 30px;	
+}
+
+span {
+	display: block;	
+	overflow: hidden;
+	padding-left: 2px;
+	font-size: 12px;
+	vertical-align: middle;	
+}
+
+.search_bar {	
+	-webkit-animation: fadeIn 2.5s;
+	animation: fadeIn 2.5s;
+	display: table;
+	width: 88%;	
+	max-width: 400px;
+	height: 20px;
+	margin: 0 auto;
+	box-shadow: 0 0 5px 0 rgba(70,70,40,.4);	
+	border-radius: 5px;	
+	vertical-align: middle;	
+	background-color: rgba(255,255,255,.0);
+}
+
+#search_submit {	
+	float: right;
+	height: 40px;
+	padding: 0 13px 0 13px;
+	border: none;
+	outline: 0;	
+	font-size: 18px;
+	font-weight: 500;
+	color: #4a4266;
+	background-color: transparent;	
+}
+
+.bdSug_app {
+	display: none !important;
+}
+
+.bdSug_wpr {
+	-webkit-animation: fadeIn 1s;
+	animation: fadeIn 1s;	
+	left: 5.9% !important;
+	width: 87.6% !important;
+	border: 1px solid #e3e3e3 !important;
+	border-radius: 5px !important;
+}
+
+.bdSug_pre {
+	line-height: 20px !important;
+}
+
+.bdSug_wpr table {
+	padding: 5px !important;
+}
+
+.bdSug_wpr td {	
+	padding: 6px 2px!important;
+	color: #666;
+}
+
+.img-list,.text-list {
+	width: 100%;
+}
+
+.box {
+	-webkit-animation: flipInX 1s;
+	animation: flipInX 1s;
+	display: inline-block;
+	position: relative;	
+	width: 20%;
+	margin: 4px;
+	border: 0;	
+}
+
+.box a {
+	position: absolute;
+	top: 0;
+	left: 0;	
+	width: 100%;
+	height: 100%;	
+}
+
+.url {	
+	width: 98%;
+	height: 1.5em;	
+	overflow: hidden;
+	margin: auto;
+	padding-top: 3px;
+	padding-bottom: 8px;
+	-webkit-border-top-right-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	-ms-text-overflow: ellipsis;	
+	font-size: 0.75em;
+	line-height: 1.5em;
+	white-space: nowrap;
+	color: #4a4266;	
+}
+
+.icon {
+	margin:0 auto;
+	width: 3em;
+	height: 3em;
+	max-width: 4.5em;
+	background-image:url(images/nav.png);
+    background-size:48px 192px;		
+}
+
+.icon-so {background-position:top left}
+.icon-weibo {background-position:0 -48px}
+.icon-hot {background-position:0 -96px}
+.icon-qsbk {background-position:bottom left}
+
+.title {	
+	height: 30px;
+	line-height: 30px;
+	padding: 0 10px 0 20px;
+	font-size: 16px;
+	color: #4a4266;
+	background-color: #ffffff;	
+}
+
+.shuxing {
+	-webkit-animation: fadeInDown 1s;
+	animation: fadeInDown 1s;	
+	margin-top: 20px;
+	padding: 0 20px;
+	color: #4a4266;
+}
+
+.shuxing .l {
+	display: none !important
+}
+
+.iciba_common_laba, .iciba_common_top_lx {
+	display: none !important
+}
+
+.ciba_ds_juzi {
+	width: 98% !important;
+	height: auto !important;
+	float: none !important;
+}
+
+.ciba_ds_juzi a {
+	text-decoration: none;
+	display: block;
+}
+
+.ciba_ds_con {
+	line-height: 24px !important;
+}
+
+@-webkit-keyframes flipInX {
+	0% {
+		-webkit-transform: perspective(400px) rotateX(90deg);
+		transform: perspective(400px) rotateX(90deg);
+		opacity: 0
+	}
+
+	40% {
+		-webkit-transform: perspective(400px) rotateX(-10deg);
+		transform: perspective(400px) rotateX(-10deg)
+	}
+
+	70% {
+		-webkit-transform: perspective(400px) rotateX(10deg);
+		transform: perspective(400px) rotateX(10deg)
+	}
+
+	100% {
+		-webkit-transform: perspective(400px) rotateX(0);
+		transform: perspective(400px) rotateX(0);
+		opacity: 1
+	}
+}
+
+@keyframes flipInX {
+	0% {
+		-webkit-transform: perspective(400px) rotateX(90deg);
+		-ms-transform: perspective(400px) rotateX(90deg);
+		transform: perspective(400px) rotateX(90deg);
+		opacity: 0
+	}
+
+	40% {
+		-webkit-transform: perspective(400px) rotateX(-10deg);
+		-ms-transform: perspective(400px) rotateX(-10deg);
+		transform: perspective(400px) rotateX(-10deg)
+	}
+
+	70% {
+		-webkit-transform: perspective(400px) rotateX(10deg);
+		-ms-transform: perspective(400px) rotateX(10deg);
+		transform: perspective(400px) rotateX(10deg)
+	}
+
+	100% {
+		-webkit-transform: perspective(400px) rotateX(0);
+		-ms-transform: perspective(400px) rotateX(0);
+		transform: perspective(400px) rotateX(0);
+		opacity: 1
+	}
+}
+
+@-webkit-keyframes fadeIn {
+	0% {
+		opacity: 0
+	}
+
+	100% {
+		opacity: 1
+	}
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0
+	}
+
+	100% {
+		opacity: 1
+	}
+}
+
+@-webkit-keyframes fadeInDown {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(-20px);
+		transform: translateY(-20px)
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+		transform: translateY(0)
+	}
+}
+
+@keyframes fadeInDown {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(-20px);
+		-ms-transform: translateY(-20px);
+		transform: translateY(-20px)
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+		-ms-transform: translateY(0);
+		transform: translateY(0)
+	}
+}
+</style>
+</head>
+<body>
+<div id="content">
+  <div id="logo"><a href="history://"><img src="images/home.png" alt="2018"></a></div>
+  <div class="search_part">
+    <form action="http://m.baidu.com/s" class="search_bar">
+      <input name="from" type="hidden" value="1011440l">
+      <input name="ie" type="hidden" value="utf-8">
+      <input type="submit" id="search_submit" value="↵" >
+      <span>
+      <input class="search" type="text" name="word" autocomplete="off" id="search_input"  baiduSug="1">
+      </span>
+    </form>
+  </div>
+<div class="img-list">
+  <div class="box"> <a href="https://m.so.com/"></a>
+    <p class="icon icon-so"></p>
+    <p class="url">360搜索</p>
+  </div>
+  <div class="box"> <a href="https://m.weibo.cn/"></a>
+    <p class="icon icon-weibo"></p>
+    <p class="url">微博</p>
+  </div>
+  <div class="box"> <a href="http://weixin.sogou.com/"></a>
+    <p class="icon icon-hot"></p>
+    <p class="url">微信热文</p>
+  </div>
+  <div class="box"> <a href="http://www.qiushibaike.com/"></a>
+    <p class="icon icon-qsbk"></p>
+    <p class="url">糗事百科</p>
+  </div>
+  </div>
+<div class="shuxing"> 
+  <script type="text/javascript" src="http://open.iciba.com/ds_open.php?id=54055&name=%E4%BF%9D%E5%BE%B7%E5%9C%A8%E7%BA%BF&auth=226994D1666A2E1E3E3D71C79CA27C72" charset="utf-8"></script> 
+</div>
+</div>
+<!--
+<script type="text/javascript" src="http://yiju.ml/api/word.php?m=js"></script>
+<script type="text/javascript">
+/*Via 标题栏随机一句古诗词(适用于任何网页)
+//Made by z1576796635 on May 28, 2017 . 
+//Powered by YiJu , h t t p : / / y i j u . m l
+*/
+var s = false; //显示来源信息，true为显示，false为不显示，默认不显示
+var t =document.getElementsByTagName("title")[0];
+if(s){
+t.innerHTML = str[0]+str[1];
+}else{
+t.innerHTML = str[0];
+}
+</script>
+-->
+</body>
+<!-- <script charset="gbk" src="https://www.baidu.com/js/opensug.js"></script> -->
+<script charset="gbk" src="https://www.baidu.com/js/opensug.js"></script>
+<script type="text/javascript">
+BaiduSuggestion.bind('search_submit', {  // Input ID
+      "XOffset": "0",             // Proposal frame position X offset, unit px.
+      "YOffset": "0",             // Prompt box position vertical Y offset, unit px.
+      "fontColor": "#ff0000",       // Prompt text color.
+      "fontColorHI": "#0000ff",     // Prompt box highlight text color when selected.
+      "fontSize": "14px",           // font size
+      "fontFamily": "Microsoft YaHei",    // Text fontFamily.
+      "borderColor": "#008000",     // Prompt box border color.
+      "bgcolorHI": "#f0f0f0",       // Prompt box highlights the selected color.
+      "sugSubmit": true             // Whether to submit the form when the entry in the prompt box is selected.
+  }, function(Callback){console.log('You have chosen：'+ Callback);});
+</script>
+</html>

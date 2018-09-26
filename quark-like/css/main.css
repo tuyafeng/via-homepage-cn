@@ -1,0 +1,115 @@
+*{overflow:hidden;margin:0;padding:0;outline:0;user-select:none;-webkit-tap-highlight-color:transparent;}
+li,ul{overflow:hidden;list-style:none;text-overflow:ellipsis;white-space:nowrap;}
+a{color:#000;text-decoration:none;}
+body{font-family:Arial,Roboto,'Droid Sans';background: no-repeat fixed;background-size: cover;}
+/* 主页 */
+#main{position:fixed;top:-100%;width:100%;}
+#logo{margin:0 auto;width:130px;height:80px;background:no-repeat center;background-size:contain;}
+#edit{margin:22px 30px 0 30px;height:45px;border:1px solid #bbb;border-radius:99px;background-color: rgba(255,255,255,0.5);}
+#book{margin:17px 20px 0 20px;text-align:center;}
+#book>li{float:left;padding:7px 0;width:20%;height:64px;font-size:12px;}
+.imgbook{margin:0 auto 8px auto;width:40px;height:40px;background-position:center;background-size:40px;background-repeat:no-repeat;}
+.delbook{position:absolute;margin-top:-10px;margin-left:20px;width:30px;height:30px;background:url(../img/delete.png) no-repeat center;background-size:19px;animation:scale .2s;}
+/* 背景页面 */
+.addbook-shade,.search,.set-from,.transition{position:fixed;top:0;display:none;width:100%;height:100%;background:#fff;animation:fadeIn .2s;}
+.addbook-shade{background:rgba(0,0,0,0.5);}
+.set-from{opacity:0;margin-top:40px;}
+.find-from{position:fixed;width:100%;height:100%;}
+/* 添加书签 */
+.addbook-from{bottom: 0;background: #fff;position: fixed;animation:up .2s;padding:0 20px}
+.addbook-title{overflow:hidden;height:50px;line-height:50px;font-size:20px}
+.addbook-content{}
+.addbook-input{padding:12px 0;width:100%;border:0;border-bottom:1px solid #E9E7E7;}
+.addbook-input:hover{border-bottom:1px solid #0066CC;}
+#addbook-upload{height: 44px;line-height: 44px;text-align:center;margin:5px 0;}
+#addbook-upload>img{margin:4px;width:36px;float: left;}
+#addbook-upload>div{width: calc(100% - 50px);text-overflow: ellipsis;text-align: right;}
+#addbook-pick{display:none}
+.addbook-btn{padding:10px 0;text-align:right;border-top:1px solid #E9E7E7;}
+.addbook-btn a{padding:8px 15px;color:#3399CC;line-height:36px;}
+.addbook-btn a:active,#addbook-upload:active{background:#eee;}
+/* 搜索页面 */
+.suggestion{overflow:auto;width:100%;height:calc(100% - 101px);}
+.suggestion>li{padding:15px 20px 15px 50px;background:url(../img/su.png) no-repeat center;background-size:15px;background-position-x:20px;animation:down2 .3s;}
+.suggestion>li:active{background-color:#eee;}
+.div-input{border-top:1px solid #eee;display:none;animation:down2 .1s;}
+.s-temp{position:fixed;top:-8pc;}
+.input{float:left;padding:19px 0 19px 20px;width:calc(100% - 120px);border:0;font-size:14px;}
+.back{float:left;display:none;width:40px;height:55px;background:url(../img/delete.png) no-repeat center;background-size:17px;}
+.close{float:right;padding-right:15px;width:40px;text-align:center;line-height:55px;}
+.close:active{color:#00f;}
+.shortcut{padding:0 10px;background:#eee;line-height:25px;display:none;animation:fadeIn .1s;}
+.shortcut *>li{float:left;padding:10px 0;text-align:center;}
+.shortcut *>li:active{background-color:#ddd;}
+.shortcut1,.shortcut2{color:#444;}
+.shortcut1>li{width:25%;}
+.shortcut2>li{width:20%;}
+.shortcut3>li{padding:10px 10px;width:25px;height:25px;background-position:center;background-size:20px;background-repeat:no-repeat;}
+.shortcut3>li:first-child{width:auto;font-size:12px;line-height:30px;}
+.shortcut3>li:nth-child(2){background-image:url(../img/search_weibo_icon.png);}
+.shortcut3>li:nth-child(3){background-image:url(../img/search_zhihu_icon.png);}
+.shortcut3>li:nth-child(4){background-image:url(../img/search_youku_icon.png);}
+.shortcut3>li:nth-child(5){background-image:url(../img/search_douban_icon.png);}
+.shortcut3>li:nth-child(6){background-image:url(../img/search_weixin_icon.png);}
+/* 设置页面 */
+.set-option-from{overflow:auto;height:calc(100% - 50px);}
+.set-back{position:absolute;top:19px;left:30px;width:12px;height:12px;border-top:2px solid #555;border-left:2px solid #555;transform:rotate(-45deg);}
+.set-logo{padding:12px 0 12px 64px;border-bottom:1px solid #ddd;color:#555;font-weight:600;font-size:20px;}
+.set-option{padding:15px 20px;}
+.set-option:active{background:#eee}
+.set-title{float:left;}
+.set-description{margin-top:25px;color:#666;font-size:13px;}
+.set-select{float:right;margin-top: 11px;}
+.set-switch{float:right;width:16px;height:16px;border:1px solid #ddd;border-radius:99pc;margin-top: 11px;}
+.set-active{background:#0099CC;border:0}
+#set-upload{display:none;}
+/* 发现页面 */
+.find-from{background:rgba(0,0,0,.4);top:-100%;}
+.find-background{position:absolute;top:0;right:0;bottom:0;left:0;margin:10px;border-radius:10px 10px 4px 4px;background:#f5f5f5;}
+.find-swipe{height:100%;margin: 0 4%;}
+.find-ul{position:relative;height: 100%;width: 0!important}
+.find-list{float:left;overflow:overlay;width:92%;height:calc(100% - 70px);}
+.find-list a{float:left;margin:5px 5px;width:calc(50% - 10px);height:80px;border-radius:6px;background:#fff;}
+.find-list a:last-child{margin-bottom:40px;}
+.find-list a:active{background:#ddd;}
+.find-list p:nth-child(2){padding:20px 10px 10px 10px;font-size:15px;line-height:10px;}
+.find-list p:nth-child(3){padding:0 10px;white-space:pre-wrap;font-size:6px;line-height:14px;word-break:break-all;color:#555;}
+.find-list img{float:right;margin-top:15px;margin-right:10px;width:30px;border-radius:99px;}
+.find-page{display:-webkit-box;padding:18px 40px 12px 40px;}
+.find-page li{color:#999;text-align:center;line-height:30px;-webkit-box-flex:1;}
+.find-page li:active{background:#ddd;}
+.active-span{position:absolute;top:47px;width:20px;height:2px;background:#000;border-radius:9pc;}
+.find-close{position:absolute;bottom:0;width:100%;height:40px;background:url(../img/close.png) no-repeat center;background-color:rgba(255,255,255,.9);background-size:14px;}
+/* 横屏自适应 */
+
+/* 动画 */
+@keyframes fadeIn{0%{opacity:0;}
+100%{opacity:1;}
+}
+@keyframes fadeOut{0%{opacity:1;}
+100%{opacity:0;}
+}
+@keyframes down{0%{opacity:1;transform:translateY(0);}
+100%{opacity:0;transform:translateY(40px);}
+}
+@keyframes down2{0%{opacity:0;transform:translateY(-20px);}
+100%{opacity:1;transform:translateY(0);}
+}
+@keyframes up{0%{opacity:0;transform:translateY(40px);}
+100%{opacity:1;transform:translateY(0);}
+}
+@keyframes find{0%{background:rgba(0,0,0,0);}
+100%{background:rgba(0,0,0,.4);}
+}
+@keyframes findUp{0%{transform:translateY(100%);}
+100%{transform:translateY(0);}
+}
+@keyframes findDown{0%{transform:translateY(0);}
+100%{transform:translateY(100%);}
+}
+@keyframes scale{0%{transform:scale(0);}
+100%{transform:scale(1);}
+}
+@keyframes scale2{0%{transform:scale(1);}
+100%{transform:scale(0);}
+}
